@@ -1,3 +1,8 @@
-from django.shortcuts import render
+from rest_framework import viewsets
 
-# Create your views here.
+from app.todolist.models import ItemModel
+from app.todolist.serializers import ItemSerializer
+
+class ItemViewSet(viewsets.ModelViewSet):
+    querset = ItemModel.objects.all()
+    serializer_class = ItemSerializer
